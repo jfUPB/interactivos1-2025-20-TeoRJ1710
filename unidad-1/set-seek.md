@@ -6,7 +6,11 @@
 
 ¿Qué es un sistema físico interactivo? 
 
+R: Un sistema fisico interactivo es un sistema que utiliza un software que ejecuta ciertas instrucciones dadas por un operador que me diante gestos fisicos como tocar un boton o hacer ciertos movimientos le da ciertas instrucciones al programa para que muestre o desarrrolle algo segun para lo que este creado
+
 ¿Cómo podrías aplicar lo que has visto en tu perfil profesional?
+
+R: se prodria aplicar en muchos ambitos de mi perfil profesional como por ejemplo a la hora de realizar diversos trabajos en los que quiera ilustrar algo que pienso pero no soy tan bueno dibujando por ejemplo, solo creo el programa y lo pongo a trabajar para que ilustre de mejor manera eso que quiero ilustrar
 
 ### Actividad 02
 
