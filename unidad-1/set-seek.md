@@ -29,3 +29,26 @@ En este sistema interactivo identifica los imputs, los outputs, y el proceso
 Se identificaron que en el microbit da ciertos outputs dependiendo de la cara que se especifique en el codigo, tambien los colores que se muestran en el programa resultado de presionar sus respectivos botones y la cara feliz depsues de presionar el boton de sen love en el programa
 los inputs los los botones A y B del microbit y ademas el agitar del microbit que muestra otro color, tambien el boton de dar amor en el programa p5
 y el proceso es nada mas y nada menos que el codigo que ejecutamos en p5 y en el editor del microbit con el cual por ejemplo le damos las instrucciones al microbit de que cara mostrar y el codigo ejecuta y procesa todo lo demas.
+
+### Actividad 04
+ENLACE:
+https://editor.p5js.org/mateorendon1710/sketches/v6jALj1BI
+
+CODIGO:
+function setup() {
+  createCanvas(600, 600);
+}
+
+function draw() {
+  
+  background(10,10);
+      
+      fill(random(100, 255), random(100, 800), random(100, 200), 255);
+
+     
+      circle(random(0,600),random(0,600), random(0,50)); 
+}
+
+
+<img width="597" height="596" alt="image" src="https://github.com/user-attachments/assets/15f7633b-6818-44f7-936d-4b7a570997a7" />
+
