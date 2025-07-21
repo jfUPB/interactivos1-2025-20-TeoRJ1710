@@ -35,20 +35,21 @@ ENLACE:
 https://editor.p5js.org/mateorendon1710/sketches/v6jALj1BI
 
 CODIGO:
+
 function setup() {
   createCanvas(600, 600);
 }
 
 function draw() {
+  background(10, 10);
   
-  background(10,10);
-      
-      fill(random(100, 255), random(100, 800), random(100, 200), 255);
-
-     
-      circle(random(0,600),random(0,600), random(0,50)); 
+  fill(random(100, 255), random(100, 255), random(100, 200), 255);
+  
+  circle(random(0, 600), random(0, 600), random(0, 50));
 }
 
 
-<img width="597" height="596" alt="image" src="https://github.com/user-attachments/assets/15f7633b-6818-44f7-936d-4b7a570997a7" />
+IMAGEN:
+<img width="598" height="599" alt="image" src="https://github.com/user-attachments/assets/c555ea1d-58eb-4906-aa4a-4fd9290e53c8" />
+
 
