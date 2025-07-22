@@ -9,5 +9,85 @@ R: primero se abre la aplicacion del microbit para implementar el codigo en el m
 
 ### ACTIVIDAD 06
 Escribe el enlace a tu programa en el editor de p5.js.
+
+https://editor.p5js.org/mateorendon1710/sketches/t39IWzrpY
+
 Copia el código de tu programa en la bitácora (recuerda insertarlo usando markdown y el lenguaje javascript).
+
+p5:
+
+let port;
+let connectBtn;
+let connectionInitialized = false;
+
+let circleX = 200; 
+
+function setup() {
+  createCanvas(400, 400);
+  background(220);
+
+  
+  port = createSerial();
+  connectBtn = createButton("Connect to micro:bit");
+  connectBtn.position(80, 300);
+  connectBtn.mousePressed(connectBtnClick);
+}
+
+function draw() {
+  background(220);
+
+  
+  if (port.opened() && !connectionInitialized) {
+    port.clear(); // Limpiar buffer serial
+    connectionInitialized = true;
+  }
+
+  if (port.availableBytes() > 0) {
+    let dataRx = port.read(1); 
+    if (dataRx === "A") {
+      circleX -= 10; 
+    } else if (dataRx === "B") {
+      circleX += 10; 
+    }
+s
+    circleX = constrain(circleX, 25, width - 25);
+  }
+
+  // Dibujar el círculo
+  fill("blue");
+  noStroke();
+  circle(circleX, height / 2, 50);
+
+  // Actualizar el texto del botón
+  if (!port.opened()) {
+    connectBtn.html("Connect to micro:bit");
+  } else {
+    connectBtn.html("Disconnect");
+  }
+}
+
+function connectBtnClick() {
+  if (!port.opened()) {
+    port.open("MicroPython", 115200); // Abrir conexión
+    connectionInitialized = false;
+  } else {
+    port.close(); // Cerrar conexión
+  }
+}
+
+
 Copia el código del micro:bit en la bitácora (recuerda insertarlo usando markdown y el lenguaje python).
+
+microbit:
+
+from microbit import *
+
+while True:
+
+    if button_a.is_pressed():
+        uart.write('A')
+    if button_b.was_pressed():
+        uart.write("B")
+
+    sleep(100)
+
