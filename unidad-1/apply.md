@@ -50,7 +50,7 @@ function draw() {
     } else if (dataRx === "B") {
       circleX += 10; 
     }
-s
+
     circleX = constrain(circleX, 25, width - 25);
   }
 
