@@ -16,6 +16,7 @@ Copia el código de tu programa en la bitácora (recuerda insertarlo usando mark
 
 p5:
 
+``` js
 let port;
 let connectBtn;
 let connectionInitialized = false;
@@ -74,12 +75,13 @@ function connectBtnClick() {
     port.close(); // Cerrar conexión
   }
 }
-
+```
 
 Copia el código del micro:bit en la bitácora (recuerda insertarlo usando markdown y el lenguaje python).
 
 microbit:
 
+``` py
 from microbit import *
 
 while True:
@@ -90,4 +92,5 @@ while True:
         uart.write("B")
 
     sleep(100)
+```
 
