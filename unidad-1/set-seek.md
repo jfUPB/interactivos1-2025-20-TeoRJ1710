@@ -32,10 +32,12 @@ y el proceso es nada mas y nada menos que el codigo que ejecutamos en p5 y en el
 
 ### Actividad 04
 ENLACE:
-https://editor.p5js.org/mateorendon1710/sketches/v6jALj1BI
+
+[Mi programa en p5.js](https://editor.p5js.org/mateorendon1710/sketches/v6jALj1BI)
 
 CODIGO:
 
+``` js
 function setup() {
   createCanvas(600, 600);
 }
@@ -47,7 +49,7 @@ function draw() {
   
   circle(random(0, 600), random(0, 600), random(0, 50));
 }
-
+```
 
 IMAGEN:
 <img width="598" height="599" alt="image" src="https://github.com/user-attachments/assets/c555ea1d-58eb-4906-aa4a-4fd9290e53c8" />
