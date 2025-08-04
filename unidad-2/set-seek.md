@@ -93,3 +93,80 @@ while True:
     semaforo.update()
 ````
 
+Los estados están definidos en la variable self.state y son:
+
+"Rojo" estado en el que el semáforo muestra el color rojo.
+
+"Verde" estado en el que se muestra el verde.
+
+"Amarillo" estado en el que se muestra el amarillo.
+
+
+Los eventos son el paso del tiempo, verificado con:
+
+````
+utime.ticks_diff(utime.ticks_ms(), self.startTime)
+````
+Cada estado cambia cuando se cumple un tiempo determinado:
+Rojo → Verde: después de 3 segundos.
+
+Verde → Amarillo: después de 3 segundos.
+
+Amarillo → Rojo: después de 1 segundo.
+
+
+### ACTVIDAD 03
+
+1: Explica por qué decimos que este programa permite realizar de manera concurrente varias tareas.
+
+R: 
+
+Temporización no bloqueante: Usa utime.ticks_diff() para contar el tiempo sin detener el flujo del programa, lo que permite hacer otras verificaciones mientras tanto.
+
+
+Manejo simultáneo de eventos: Dentro del mismo ciclo, puede:
+
+Detectar si ha pasado el tiempo (evento de temporizador).
+
+Detectar si se presionó el botón A (evento externo).
+
+2: Identifica los estados, eventos y acciones en el programa.
+
+R:
+
+1: Los estados son valores de la variable current_state:
+
+- STATE_INIT (0): estado inicial, muestra HAPPY y pasa a STATE_HAPPY.
+
+- STATE_HAPPY (1): muestra la cara feliz.
+
+- STATE_SMILE (2): muestra la sonrisa.
+
+2: Los eventos
+
+- Presión del botón A (button_a.was_pressed())
+
+- Tiempo transcurrido (utime.ticks_diff(...) > interval)
+
+3: 
+
+- Mostrar una imagen con display.sho
+
+- Actualizar el tiempo de inicio con start_time = utime.ticks_ms
+
+- Cambiar el estado current_state
+
+- Actualizar el valor del intervalo interval 
+
+
+3: Describe y aplica al menos 3 vectores de prueba para el programa. Para definir un vector de prueba debes llevar al sistema a un estado, generar los eventos y observar el estado siguiente y las acciones que ocurrirán. Por tanto, un vector de prueba tiene unas condiciones iniciales del sistema, unos resultados esperados y los resultados realmente obtenidos. Si el resultado obtenido es igual al esperado entonces el sistema pasó el vector de prueba, de lo contrario el sistema puede tener un error.
+
+R:
+
+1: STATE_INIT	Inicia el ciclo	y se espera STATE_HAPPY	 Mostrar HAPPY	
+
+2: STATE_HAPPY	Botón A presionado	y se espera STATE_SAD	Mostrar SAD, timer = 2000	
+
+3: STATE_SMILE	Pasan 1000 ms	y se espera STATE_SAD	Mostrar SAD, timer = 2000
+
+
