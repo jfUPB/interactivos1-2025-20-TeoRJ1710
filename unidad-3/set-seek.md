@@ -14,3 +14,7 @@ MAPA
 
 <img width="1066" height="388" alt="image" src="https://github.com/user-attachments/assets/689fc48d-8c46-4ff1-b1b1-88d6182ece44" />
 
+
+TABLA DE ESTADOS
+
+<img width="1152" height="418" alt="image" src="https://github.com/user-attachments/assets/94791268-b515-4f0d-bf9f-2aef70cc782e" />
