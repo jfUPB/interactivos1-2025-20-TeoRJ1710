@@ -80,30 +80,115 @@ Así se representan los valores de aceleración positivos y negativos.
 Diferencias observadas:
 
 El binario aparece como bytes en Hex (compacto, ilegible a simple vista).
-
 El ASCII se ve como texto legible (-20,50,0,1 por ejemplo).
 
 Ventajas del binario:
 
 Compacto y rápido.
-
 Mejor para transmitir grandes cantidades de datos en tiempo real.
 
 Desventajas del binario:
 
 No es legible sin herramientas de decodificación.
-
 Mayor riesgo de error si el formato no se interpreta bien.
 
 Ventajas del ASCII:
 
 Fácil de leer e interpretar a simple vista.
-
 No depende de conocer la estructura de bytes.
 
 Desventajas del ASCII:
 
 Ocupa más espacio (cada número puede ser 3-5 caracteres).
-
 Más lento de enviar y procesar.
+
+
+
+
+
+### ACTIVIDAD 03
+
+
+Pregunta 1
+
+¿Por qué en la unidad anterior teníamos que enviar la información delimitada con un salto de línea y ahora no es necesario?
+
+Antes:
+
+Se usaban cadenas de texto ("500,524,true,false\n").
+Cada valor tenía distinto tamaño (500 → 3 caracteres, true → 4 caracteres).
+El receptor no podía saber dónde terminaba un número y empezaba el siguiente sin un delimitador.
+El salto de línea (\n) servía como “marca de fin de paquete”.
+
+Ahora:
+
+Se usan paquetes binarios de tamaño fijo (6 bytes o 8 bytes con framing).
+Cada campo ocupa un tamaño exacto y conocido:
+
+xValue → 2 bytes
+
+yValue → 2 bytes
+
+aState → 1 byte
+
+bState → 1 byte
+
+Ya no hace falta un delimitador porque el receptor sabe que cada paquete mide exactamente 6 bytes.
+
+Pregunta 2
+
+Compara el código de la unidad anterior con el nuevo (recepción de datos seriales). ¿Qué cambios observas?
+
+Antes:
+
+Leía líneas completas de texto con port.readUntil("\n").
+Convertía cadenas a enteros/booleanos (int(values[0]), values[2].toLowerCase() === "true").
+Dependía de que el micro:bit enviara texto delimitado por comas y salto de línea.
+
+Ahora:
+
+Lee un número fijo de bytes (port.readBytes(6) o port.readBytes(8) con framing).
+Usa DataView para interpretar bytes como enteros (getInt16, getUint8).
+No hay parsing de strings, sino lectura binaria directa → más eficiente y rápido.
+
+Pregunta 3
+
+¿Qué ves en la consola cuando ocurre el error? ¿Por qué se produce?
+
+Ejemplo de salida con error:
+
+microBitX: 500 microBitY: 524 microBitAState: true microBitBState: false
+microBitX: 500 microBitY: 513 microBitAState: false microBitBState: false
+microBitX: 3073 microBitY: 1 microBitAState: false microBitBState: false
+
+
+Lo que pasa:
+
+Los bytes llegan en “pedazos” y a veces p5.js empieza a leer en medio de un paquete.
+Eso desordena los valores → el microBitY cambia bruscamente (524 → 513), o aparecen valores absurdos (microBitX: 3073).
+Es un problema de sincronización típico en comunicaciones seriales.
+
+Pregunta 4
+
+¿Qué cambia con la estrategia de framing (versión final del código)? ¿Qué ves ahora en consola?
+
+Cambios claves:
+
+Se agrega un header fijo (0xAA) → marca el inicio del paquete.
+
+Se incluye un checksum → garantiza integridad de los datos.
+
+En el código p5.js:
+Se almacena todo en un serialBuffer.
+Se buscan headers válidos antes de procesar un paquete.
+Se descartan bytes basura o paquetes dañados.
+
+Resultado en consola:
+
+Ahora los valores son estables y coherentes (microBitX: … microBitY: …).
+Si hay un error de transmisión → aparece "Checksum error in packet", pero el programa no se desincroniza.
+
+
+
+### ACTIVIDAD 04
 
