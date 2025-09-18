@@ -192,3 +192,21 @@ Si hay un error de transmisión → aparece "Checksum error in packet", pero el 
 
 ### ACTIVIDAD 04
 
+
+Cabe aclarar que en el momento en el que hice la ultima actividad no tenia el microbit asi que le pido disculpas profesor porque en realidad para el desarrollo de la actividad que fue modificando el codigo mio que hice antes si por no tener el microbit y directamente sin poder probar mi aplicacion se me hizo imposible ver los errores principales para el desarrollo de esta actividad, pero tampoco queria dejarlo imcom´pleto entonces le pedi a la ia generativa que me simulara la situacion porque yo no tenia el microbit y me explico que las cosas que habia que cambiar que podrian dar errores en el codigo mio originla de la unidad anterior eran pocas enrealidad como por ejemplo cambiar ciertas cosas para que fuera compatible mi codigo con el codigo del microbit nuevo, tambien actualize algunas variable para que fuera igual al nuevo codiugo del microbit y etc.
+
+<img width="1903" height="549" alt="image" src="https://github.com/user-attachments/assets/dc1c31c4-9273-4d3f-90e8-2f680d584669" />
+el codigo de esta unidad en el microbit
+
+<img width="1903" height="828" alt="image" src="https://github.com/user-attachments/assets/5d2a25f1-fdd0-4cff-8d0e-ae94428d7601" />
+este es el codigo funcionando efectivamente ya modificado y listo para conectar con el microbit
+
+<img width="1645" height="808" alt="image" src="https://github.com/user-attachments/assets/f0234f91-0edb-49aa-9c34-666263bf58f7" />
+parte del codigo modificada para procesar el buffer serial
+
+<img width="887" height="306" alt="image" src="https://github.com/user-attachments/assets/dd8229c2-fde2-456f-9eab-df7639fddf53" />
+variables cambiadas
+
+
+
+
