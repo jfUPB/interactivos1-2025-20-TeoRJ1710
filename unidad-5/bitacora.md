@@ -207,6 +207,13 @@ parte del codigo modificada para procesar el buffer serial
 <img width="887" height="306" alt="image" src="https://github.com/user-attachments/assets/dd8229c2-fde2-456f-9eab-df7639fddf53" />
 variables cambiadas
 
+este es el link del codigo en p5
 
+https://editor.p5js.org/mateorendon1710/sketches/QJQpIpiqz
+
+
+## valoracion de mi unidad y mi proceso
+
+Despues de repasar todo y despues de desarrollar todas mis actividades me doy una nota de 3 a 3.5 porque considero que si me faltaron varias cosas en mi proceso, y me mato mucho dejarlo todo para lo ultimo y no poder hacer los ejercicios en clase con el microbit y poder dejar evidencia, por lo cual considero que el proceso esta bastante imcompleto ya que hacen falta casi que la mitad de las pruebas del proceso entonces entiendo que debe de ser una nota baja y hasta incluso entiendo si es una nota de perdida-
 
 
