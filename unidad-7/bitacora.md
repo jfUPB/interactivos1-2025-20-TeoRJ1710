@@ -44,7 +44,11 @@ Usar la IP local solo funciona si ambos dispositivos están en la misma red.
 Dev Tunnels es mucho mas seguro y permite la conexion desde cual lugar del mundo.
 
 4: Capturas de pantalla:
-En este punto se incluyeron las capturas del sistema funcionando: el celular con la interfaz “Touch to move the circle”, el escritorio mostrando el círculo rojo moviéndose, y la terminal mostrando los mensajes del servidor.
+<img width="630" height="563" alt="image" src="https://github.com/user-attachments/assets/dd2a8afe-cc5a-42d4-ab05-a38728d992b4" />
+
+<img width="643" height="633" alt="image" src="https://github.com/user-attachments/assets/79e7ff33-bf5b-4542-bc04-f4fab5467373" />
+
+
 
 
 
@@ -83,6 +87,7 @@ Diagnosticar problemas: Si algo no funciona, estos logs son la primera pista par
 
 
 El usuario toca la pantalla del móvil → touchMoved() detecta el movimiento, despues el móvil envía las coordenadas (x, y) al servidor con socket.emit('message'), luego el servidor Node.js recibe el mensaje → socket.on('message'), despues el servidor retransmite los datos a los demás clientes (escritorio) con socket.broadcast.emit('message') y por ultimo el escritorio recibe los datos → actualiza la posición del círculo rojo en el canvas de p5.js.
+
 
 
 
