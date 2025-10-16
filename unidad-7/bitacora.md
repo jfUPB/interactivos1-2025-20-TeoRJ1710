@@ -79,16 +79,10 @@ Diagnosticar problemas: Si algo no funciona, estos logs son la primera pista par
 
 ## Actividad 04 
 
-*Realiza un diagrama donde muestres el flujo completo de datos y eventos entre los tres componentes.*
+<img width="1393" height="227" alt="image" src="https://github.com/user-attachments/assets/30e10cbf-7b58-46d1-8dfa-da3f84f36871" />
 
-*Descripción del flujo (para acompañar el diagrama):*
 
-1. El usuario toca la pantalla del móvil → touchMoved() detecta el movimiento.
-2. El móvil envía las coordenadas (x, y) al servidor con socket.emit('message').
-3. El servidor Node.js recibe el mensaje → socket.on('message').
-4. El servidor retransmite los datos a los demás clientes (escritorio) con socket.broadcast.emit('message').
-5. El escritorio recibe los datos → actualiza la posición del círculo rojo en el canvas de p5.js.
+El usuario toca la pantalla del móvil → touchMoved() detecta el movimiento, despues el móvil envía las coordenadas (x, y) al servidor con socket.emit('message'), luego el servidor Node.js recibe el mensaje → socket.on('message'), despues el servidor retransmite los datos a los demás clientes (escritorio) con socket.broadcast.emit('message') y por ultimo el escritorio recibe los datos → actualiza la posición del círculo rojo en el canvas de p5.js.
 
-*Ejemplo:*
-Si el móvil envía {x: 120, y: 250}, el servidor lo reenvía y el escritorio dibuja el círculo en esas coordenadas.
+
 
