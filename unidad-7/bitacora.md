@@ -88,6 +88,12 @@ Diagnosticar problemas: Si algo no funciona, estos logs son la primera pista par
 
 El usuario toca la pantalla del móvil → touchMoved() detecta el movimiento, despues el móvil envía las coordenadas (x, y) al servidor con socket.emit('message'), luego el servidor Node.js recibe el mensaje → socket.on('message'), despues el servidor retransmite los datos a los demás clientes (escritorio) con socket.broadcast.emit('message') y por ultimo el escritorio recibe los datos → actualiza la posición del círculo rojo en el canvas de p5.js.
 
+## Actividad 05
+
+Bueno el diseño que estoy pensando hacer y que en cierta parte me recomendo la ia es este:
+
+Sintetizador de Ondas Reactivas
+La idea es crear un visualizador musical donde el escritorio muestra una serie de ondas o partículas que reaccionan a una "melodía" imaginaria controlada desde el celular. El móvil se convierte en un panel de control táctil (como un sintetizador simple) para manipular el comportamiento de las visuales en tiempo real.
 
 
 
