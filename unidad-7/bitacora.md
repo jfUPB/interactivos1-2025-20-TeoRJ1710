@@ -296,3 +296,7 @@ class Particula {
   }
 }
 ```
+
+## Autoevaluacion uniudad
+
+Pienso que la nota pude ser 5 o 4 porque la ver es que algunas actividades pueden estar medio incompletas pero de resto creo que esta todo bien
