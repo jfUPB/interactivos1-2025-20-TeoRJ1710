@@ -96,4 +96,203 @@ Sintetizador de Ondas Reactivas
 La idea es crear un visualizador musical donde el escritorio muestra una serie de ondas o partículas que reaccionan a una "melodía" imaginaria controlada desde el celular. El móvil se convierte en un panel de control táctil (como un sintetizador simple) para manipular el comportamiento de las visuales en tiempo real.
 
 
+server.js
 
+```
+// ----------------------------------------------------
+// Servidor para Visuales Musicales Interactivas
+// ----------------------------------------------------
+
+const express = require('express');
+const http = require('http');
+const socketIO = require('socket.io');
+
+const app = express();
+const server = http.createServer(app);
+const io = socketIO(server);
+
+const PORT = 3000;
+
+// Servir los archivos de la carpeta 'public'
+app.use(express.static('public'));
+
+// Eventos de Socket.IO
+io.on('connection', (socket) => {
+  console.log('✨ Nuevo cliente conectado:', socket.id);
+
+  // Cuando se recibe data del control (móvil)...
+  socket.on('control-data', (data) => {
+    // ...se retransmite a todos los demás clientes (el escritorio).
+    socket.broadcast.emit('visual-data', data);
+  });
+
+  socket.on('disconnect', () => {
+    console.log('🔌 Cliente desconectado:', socket.id);
+  });
+});
+
+server.listen(PORT, () => {
+  console.log(`🚀 Servidor escuchando en el puerto ${PORT}`);
+});
+```
+
+
+sketch.js mobile
+
+```
+// ----------------------------------------------------
+// Cliente Móvil: Panel de Control Táctil
+// ----------------------------------------------------
+
+// Reemplaza esta URL con la tuya de Dev Tunnels
+const SERVER_URL = 'https://TU_URL.use2.devtunnels.ms/';
+let socket;
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  
+  // Conectar al servidor
+  socket = io.connect(SERVER_URL, {
+    reconnection: true
+  });
+
+  socket.on('connect', () => {
+    console.log('Conectado al servidor!');
+  });
+  
+  background(30);
+  fill(255);
+  textAlign(CENTER, CENTER);
+  textSize(24);
+  text('Mueve el dedo para controlar las visuales', width / 2, height / 2);
+}
+
+// Envía datos cuando se mueve el dedo
+function touchMoved() {
+  // Normalizar las coordenadas (valores entre 0 y 1)
+  const data = {
+    x: touchX / width,
+    y: touchY / height,
+    touched: false // No es un toque nuevo, es un movimiento
+  };
+  socket.emit('control-data', data);
+  
+  // Evita el comportamiento por defecto del navegador
+  return false;
+}
+
+// Envía un evento de "beat" cuando se toca la pantalla
+function touchStarted() {
+  background(30, 200, 30); // Feedback visual
+  setTimeout(() => background(30), 100);
+
+  const data = {
+    x: touchX / width,
+    y: touchY / height,
+    touched: true // ¡Es un toque nuevo!
+  };
+  socket.emit('control-data', data);
+  
+  return false;
+}
+
+```
+
+sketch.js desktop
+```
+// ----------------------------------------------------
+// Cliente Escritorio: Visualizador de Ondas
+// ----------------------------------------------------
+
+const SERVER_URL = 'https://TU_URL.use2.devtunnels.ms/';
+let socket;
+
+// Variables para las visuales
+let colorPrincipal;
+let frecuencia = 0.02;
+let tiempo = 0;
+let particulas = [];
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  colorPrincipal = color(0, 150, 255); // Color inicial
+
+  // Conectar al servidor
+  socket = io.connect(SERVER_URL);
+
+  // Escuchar los datos que vienen del servidor
+  socket.on('visual-data', (data) => {
+    // Mapear la posición X (0 a 1) a un color entre azul y fucsia
+    let colorAzul = color(0, 150, 255);
+    let colorFucsia = color(255, 0, 150);
+    colorPrincipal = lerpColor(colorAzul, colorFucsia, data.x);
+
+    // Mapear la posición Y (0 a 1) a la frecuencia de la onda
+    frecuencia = map(data.y, 0, 1, 0.01, 0.09);
+
+    // Si hubo un toque, crear una explosión de partículas
+    if (data.touched) {
+      crearExplosion();
+    }
+  });
+}
+
+function draw() {
+  background(10, 20); // Fondo oscuro con un leve rastro
+
+  // --- DIBUJAR LA ONDA ---
+  beginShape();
+  stroke(colorPrincipal);
+  strokeWeight(4);
+  noFill();
+  for (let x = 0; x < width; x += 5) {
+    // Usar ruido Perlin para una onda orgánica
+    let y = map(noise(x * frecuencia, tiempo), 0, 1, height * 0.2, height * 0.8);
+    vertex(x, y);
+  }
+  endShape();
+
+  tiempo += 0.01; // Hacer que la onda se mueva en el tiempo
+
+  // --- DIBUJAR Y ACTUALIZAR PARTÍCULAS ---
+  for (let i = particulas.length - 1; i >= 0; i--) {
+    particulas[i].update();
+    particulas[i].show();
+    if (particulas[i].isFinished()) {
+      particulas.splice(i, 1);
+    }
+  }
+}
+
+function crearExplosion() {
+  for (let i = 0; i < 100; i++) {
+    particulas.push(new Particula(width / 2, height / 2, colorPrincipal));
+  }
+}
+
+// --- CLASE PARTÍCULA ---
+class Particula {
+  constructor(x, y, col) {
+    this.pos = createVector(x, y);
+    this.vel = p5.Vector.random2D().mult(random(2, 6));
+    this.lifespan = 255;
+    this.col = col;
+  }
+
+  isFinished() {
+    return this.lifespan < 0;
+  }
+
+  update() {
+    this.pos.add(this.vel);
+    this.vel.mult(0.98); // Fricción
+    this.lifespan -= 4;
+  }
+
+  show() {
+    noStroke();
+    fill(red(this.col), green(this.col), blue(this.col), this.lifespan);
+    ellipse(this.pos.x, this.pos.y, 8, 8);
+  }
+}
+```
