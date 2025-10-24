@@ -7,7 +7,7 @@
 
 1: Documenta los referentes visuales que te inspiren.
 
-R: escoji una cancion que se llama shape of you que tiene un ritmo marcado 
+R: escoji una cancion que se llama "shape of you - Ed Sheran" que tiene un ritmo marcado 
 y caracteristico que casi todo el mundo econoce o ha escuchado alguna vez lo cual no seria tan dificil porque el ritmo se marca en toda la cancion
 
 2: Define el concepto de las visuales que quieres crear.
@@ -21,4 +21,5 @@ R: quisiera que el movil lo que hiciera es que controlara las visuales de forma 
 4: Haz un bocetos de todas las interfaces del sistema.
 
 5: Haz un diagrama que explique cómo se comunicarán los diferentes componentes del sistema.
+
 
