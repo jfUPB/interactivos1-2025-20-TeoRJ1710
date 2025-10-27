@@ -25,5 +25,7 @@ R: quisiera que el movil lo que hiciera es que controlara las visuales de forma 
 
 5: Haz un diagrama que explique cómo se comunicarán los diferentes componentes del sistema.
 
+<img width="799" height="439" alt="image" src="https://github.com/user-attachments/assets/efc9ff2d-795d-4215-b510-883bd61ace19" />
+
 
 
