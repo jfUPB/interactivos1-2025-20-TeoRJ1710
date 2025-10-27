@@ -20,6 +20,10 @@ R: quisiera que el movil lo que hiciera es que controlara las visuales de forma 
 
 4: Haz un bocetos de todas las interfaces del sistema.
 
+<img width="1154" height="647" alt="image" src="https://github.com/user-attachments/assets/f738e843-6ac4-4ab6-99d3-abbd0f4c1a56" />
+
+
 5: Haz un diagrama que explique cómo se comunicarán los diferentes componentes del sistema.
+
 
 
