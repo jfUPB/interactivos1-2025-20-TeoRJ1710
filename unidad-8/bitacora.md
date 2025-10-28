@@ -27,5 +27,15 @@ R: quisiera que el movil lo que hiciera es que controlara las visuales de forma 
 
 <img width="799" height="439" alt="image" src="https://github.com/user-attachments/assets/efc9ff2d-795d-4215-b510-883bd61ace19" />
 
+## ACTIVIDAD 02
+
+🧐🧪✍️ Reporta en tu bitácora
+
+Documenta todo el proceso de construcción.
+
+R: primero lo primero partiendo ya del diseño y la idea del proyecto empece primero preguntandole a la ia si el diseño y todo estaba bien para poder proseguir, la IA respondio positivamente apoyando la idea
+
+Ahora empezamos primero por el cerebro de todo el visualizador de p5.js, le pedi a la ia que me ayudara con los codigos y empezamos con el index y con el skecth
 
 
+Incluye todos los códigos: servidor, cliente móvil, cliente de escritorio y micro:bit.
