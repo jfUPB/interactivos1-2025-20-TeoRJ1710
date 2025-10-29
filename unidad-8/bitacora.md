@@ -47,7 +47,7 @@ ahora con lo del microbit fue algo tedioso no por el codigo del microbit si no p
 
 AQUI DEJO UN VIDEO DL RESULTADO FINAL DE TODO
 
-
+https://drive.google.com/file/d/1rkKUVxD-01I_u-9GW5D1DgZEkMJVnb7F/view?usp=sharing
 
 
 Incluye todos los códigos: servidor, cliente móvil, cliente de escritorio y micro:bit.
@@ -308,4 +308,5 @@ while True:
 
     sleep(20) # Pequeña pausa
 ```
+
 
