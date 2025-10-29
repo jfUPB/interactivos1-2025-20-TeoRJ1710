@@ -35,7 +35,19 @@ Documenta todo el proceso de construcción.
 
 R: primero lo primero partiendo ya del diseño y la idea del proyecto empece primero preguntandole a la ia si el diseño y todo estaba bien para poder proseguir, la IA respondio positivamente apoyando la idea
 
-Ahora empezamos primero por el cerebro de todo el visualizador de p5.js, le pedi a la ia que me ayudara con los codigos y empezamos con el index y con el skecth
+Ahora empezamos primero por el cerebro de todo el visualizador de p5.js, le pedi a la ia que me ayudara con los codigos y empezamos con el index y con el skecth.
+
+Aunque aqui me di cuenta que hacer todo desde cero para vs code iba a ser muy largo y tedioso y no estaba bien de tiempo por lo tanto, recurri a algo diferente que fue usar la unidad pasada como base y que de ahi partieramos en la implementacion de cada cosa que necesitaba para mi diseño
+
+despues cambiamos el codigo del serevidor primero para mi diseño y despues para corregir algunas cosas de la unidad pasada, ya despues mas adelante se le añadio la parte del microbit
+
+despues de terminar lo de la conectividad y que mi servidor y que el pc se comunicaran bien pasamos a algo diferente tambien
+
+ahora con lo del microbit fue algo tedioso no por el codigo del microbit si no por hacer que se pudiera coenctar correctamente
+
+AQUI DEJO UN VIDEO DL RESULTADO FINAL DE TODO
+
+
 
 
 Incluye todos los códigos: servidor, cliente móvil, cliente de escritorio y micro:bit.
@@ -296,3 +308,4 @@ while True:
 
     sleep(20) # Pequeña pausa
 ```
+
