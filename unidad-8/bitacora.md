@@ -309,4 +309,7 @@ while True:
     sleep(20) # Pequeña pausa
 ```
 
+## AUTOEVALUACION
+
+R: 5, actividades completas, diseño completo, mapa completo, programa completo y evidencias completas
 
